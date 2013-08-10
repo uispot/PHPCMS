@@ -27,7 +27,17 @@ class yp_input {
 			$pattern = $this->fields[$field]['pattern'];
 			$errortips = $this->fields[$field]['errortips'];
 			if(empty($errortips)) $errortips = $name.' '.L('not_meet_the_conditions');
-			$length = empty($value) ? 0 : strlen($value);
+			if(is_array($value)){
+              if($field == 'pattern'){
+                  $length = count($value)-1;
+              }
+              else{
+                  $length = count($value);
+              }
+            }
+              else{
+                  $length = empty($value) ? 0 : strlen($value);
+              }
 
 			if($minlength && $length < $minlength) {
 				if($isimport) {
