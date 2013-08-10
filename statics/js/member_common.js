@@ -61,7 +61,7 @@ function remove_div(id) {
 }
 
 function select_catids() {
-	$('#addbutton').attr('disabled','');
+	$('#addbutton').removeAttr("disabled");
 
 }
 
@@ -99,7 +99,7 @@ function transact(update,fromfiled,tofiled, num) {
 			text = text.trim();
 			fieldvalue = "<option value='"+fieldvalue+"'>"+text+"</option>"
 			$('#'+tofiled).append(fieldvalue);
-			$('#deletebutton').attr('disabled','');
+			$('#deletebutton').removeAttr('disabled','false');
 		}
 	}
 }

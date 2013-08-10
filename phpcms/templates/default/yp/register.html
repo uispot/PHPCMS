@@ -39,28 +39,29 @@
 </div>
 <div class="clear"></div>
 <script type="text/javascript"> 
+
+        $('#myform').submit(function (){
+                if ($("#catids option").size()<1){
+                        alert('请选择企业库类型！');
+                        return false;
+                } else {
+                        $("#catids option").each(function() {
+                                $(this).attr('selected','selected');
+                        });
+                }
+                return true;
+        });
 <!--
 //只能放到最下面
 $(function(){
-	$.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'}, 	function(){$(obj).focus();
-	boxid = $(obj).attr('id');
-	if($('#'+boxid).attr('boxid')!=undefined) {
-		check_content(boxid);
-	}
-	})}});
-	{$formValidator}
+        $.formValidator.initConfig({formid:"myform",autotip:true,onerror:function(msg,obj){window.top.art.dialog({content:msg,lock:true,width:'200',height:'50'},         function(){$(obj).focus();
+        boxid = $(obj).attr('id');
+        if($('#'+boxid).attr('boxid')!=undefined) {
+                check_content(boxid);
+        }
+        })}});
+        {$formValidator}
 
-	$('#myform').submit(function (){
-		if ($("#catids option").size()<1){
-			alert('请选择企业库类型！');
-			return false;
-		} else {
-			$("#catids option").each(function() {
-				$(this).attr('selected','selected');
-			});
-		}
-		return true;
-	});
 })
 //-->
 </script>
